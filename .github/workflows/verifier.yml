@@ -1,0 +1,15 @@
+name: Vérifier
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Catalogue, empreintes et contrôle anti-fuite
+        run: node outils/construire.mjs --sans-zip

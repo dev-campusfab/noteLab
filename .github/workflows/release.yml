@@ -1,0 +1,23 @@
+name: Release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Construire manifest.json et noteLab.zip
+        run: node outils/construire.mjs
+        env:
+          TAG: ${{ github.ref_name }}
+      - name: Publier la release
+        run: gh release create "$TAG" dist/manifest.json dist/noteLab.zip --title "noteLab $TAG" --notes-file dist/notes.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}

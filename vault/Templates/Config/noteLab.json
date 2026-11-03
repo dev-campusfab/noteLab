@@ -1,0 +1,110 @@
+{
+  "_lisezmoi": "Catalogue noteLab (mis à jour avec noteLab, ne pas modifier) : fichiers et plugins de chaque module. Les modules actifs se choisissent dans Templates/Config/Réglages.md.",
+  "nom": "noteLab",
+  "depot": "dev-campusfab/noteLab",
+  "version": "1.0.0",
+  "modules": {
+    "coeur": {
+      "nom": "🧩 Cœur",
+      "description": "Démarrage, réglages, mises à jour, 📄 Nouvelle note, projets.",
+      "obligatoire": true,
+      "fichiers": [
+        "Templates/Démarrage.md",
+        "Templates/Config/noteLab.json",
+        "Templates/Scripts/demarrage.js",
+        "Templates/Scripts/config.js",
+        "Templates/Scripts/dateFr.js",
+        "Templates/Scripts/comboSuggest.js",
+        "Templates/Scripts/multiSuggest.js",
+        "Templates/Scripts/valeursVault.js",
+        "Templates/Scripts/projets.js"
+      ],
+      "plugins": [
+        {
+          "id": "templater-obsidian",
+          "repo": "silentvoid13/Templater",
+          "appareils": "tous"
+        }
+      ]
+    },
+    "taches": {
+      "nom": "✅ Tâches et projets",
+      "description": "➕ Nouvelle tâche, liste, kanban, calendrier, projets, chrono, historique.",
+      "fichiers": [
+        "Templates/Scripts/nouvelleTache.js",
+        "Templates/Scripts/duree.js",
+        "Templates/Vues/taches.js",
+        "Tâches/Tâches.md",
+        "Tâches/Kanban.md",
+        "Tâches/Calendrier.md",
+        "Tâches/Projets.md",
+        "Templates/Config/reglages/dataview.json",
+        "Templates/Config/reglages/obsidian-tasks-plugin.json"
+      ],
+      "plugins": [
+        {
+          "id": "dataview",
+          "repo": "blacksmithgu/obsidian-dataview",
+          "appareils": "tous"
+        },
+        {
+          "id": "obsidian-tasks-plugin",
+          "repo": "obsidian-tasks-group/obsidian-tasks",
+          "appareils": "tous"
+        }
+      ]
+    },
+    "notes": {
+      "nom": "✍️ Notes et manuscrits",
+      "description": "Modèles de notes (cours, réunions, études), manuscrits iPad (Excalidraw), index.",
+      "fichiers": [
+        "Templates/Template_cours.md",
+        "Templates/Template_projet.md",
+        "Templates/Scripts/saisieNote.js",
+        "Templates/Scripts/nouveauManuscrit.js",
+        "Templates/Scripts/classerManuscrit.js",
+        "Index manuscrits.md",
+        "Templates/Config/reglages/table-editor-obsidian.json"
+      ],
+      "plugins": [
+        {
+          "id": "obsidian-excalidraw-plugin",
+          "repo": "zsviczian/obsidian-excalidraw-plugin",
+          "appareils": "tous"
+        },
+        {
+          "id": "table-editor-obsidian",
+          "repo": "tgrosinger/advanced-tables-obsidian",
+          "appareils": "tous"
+        }
+      ]
+    },
+    "ia": {
+      "nom": "🤖 IA",
+      "description": "Agent « vide ta tête » (vrac → tâches) et lecture des manuscrits. Demande un serveur Ollama.",
+      "requiert": [
+        "taches"
+      ],
+      "fichiers": [
+        "Templates/Scripts/agentTaches.js"
+      ],
+      "plugins": [
+        {
+          "id": "ai-image-analyzer",
+          "repo": "swaggeroo/obsidian-ai-image-analyzer",
+          "appareils": "ordinateur"
+        },
+        {
+          "id": "omnisearch",
+          "repo": "scambier/obsidian-omnisearch",
+          "appareils": "ordinateur"
+        },
+        {
+          "id": "text-extractor",
+          "repo": "scambier/obsidian-text-extractor",
+          "appareils": "ordinateur"
+        }
+      ]
+    }
+  }
+}
